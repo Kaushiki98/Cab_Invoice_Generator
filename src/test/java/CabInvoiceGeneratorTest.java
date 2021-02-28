@@ -6,14 +6,22 @@ public class CabInvoiceGeneratorTest {
 
     @Test
     public void givenDistanceAndTime_ShouldReturnFare() {
-        double distance = 2.0;
-        int time = 5;
-        double fare = invoice_generator.calculateFare(distance, time);
+        double fare = invoice_generator.calculateFare(2.0, 5);
         Assertions.assertEquals(15,  15);
     }
     @Test
-    public void givenMultipleRides_ShouldReturnTotalFare() {
-        double fare = invoice_generator.multipleRides(10);
+    public void givenRides_ShouldReturn_NumberOfRides() {
+        double fare = invoice_generator.Rides(10);
+        Assertions.assertEquals(10 ,10);
+    }
+    @Test
+    public void givenMultipleRidesAndDistance_ShouldReturnTotalFare() {
+        double fare = invoice_generator.TotalFare(10,2.0, 5);
         Assertions.assertEquals(150 ,150);
+    }
+    @Test
+    public void givenTotalFare_ShouldReturnAvgFare() {
+        double fare = invoice_generator.AvgFare(10, 2.0,5);
+        Assertions.assertEquals(75 ,75);
     }
 }
